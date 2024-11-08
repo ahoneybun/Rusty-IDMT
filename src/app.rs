@@ -11,7 +11,7 @@ use cosmic::{cosmic_theme, theme, Application, ApplicationExt, Apply, Element};
 use futures_util::SinkExt;
 use std::collections::HashMap;
 
-const REPOSITORY: &str = "https://github.com/pop-os/cosmic-app-template";
+const REPOSITORY: &str = "https://github.com/ahoneybun/Rusty-IDMT";
 const APP_ICON: &[u8] = include_bytes!("../res/icons/hicolor/scalable/apps/icon.svg");
 
 /// The application model stores app-specific state used to describe its interface and
@@ -50,7 +50,7 @@ impl Application for AppModel {
     type Message = Message;
 
     /// Unique identifier in RDNN (reverse domain name notation) format.
-    const APP_ID: &'static str = "com.example.CosmicAppTemplate";
+    const APP_ID: &'static str = "com.github.ahoneybun.CosmicApp";
 
     fn core(&self) -> &Core {
         &self.core
@@ -66,8 +66,8 @@ impl Application for AppModel {
         let mut nav = nav_bar::Model::default();
 
         nav.insert()
-            .text(fl!("page-id", num = 1))
-            .data::<Page>(Page::Page1)
+            .text(fl!("warranty"))
+            .data::<Page>(Page::Warranty)
             .icon(icon::from_name("applications-science-symbolic"))
             .activate();
 
@@ -267,7 +267,7 @@ impl AppModel {
 
 /// The page to display in the application.
 pub enum Page {
-    Page1,
+    Warranty,
     Page2,
     Page3,
 }
