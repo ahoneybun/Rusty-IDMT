@@ -66,6 +66,12 @@ impl Application for AppModel {
         let mut nav = nav_bar::Model::default();
 
         nav.insert()
+            .text(fl!("intro"))
+            .data::<Page>(Page::Introduction)
+            .icon(icon::from_name("applications-science-symbolic"))
+            .activate();
+
+        nav.insert()
             .text(fl!("warranty"))
             .data::<Page>(Page::Warranty)
             .icon(icon::from_name("applications-science-symbolic"))
@@ -267,6 +273,7 @@ impl AppModel {
 
 /// The page to display in the application.
 pub enum Page {
+    Introduction,
     Warranty,
     Page2,
     Page3,
